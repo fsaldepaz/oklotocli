@@ -110,6 +110,6 @@ import { DrawService } from './draw.service';
 export class DrawListComponent {
   private readonly drawService = inject(DrawService);
   readonly drawsResource = rxResource({
-    loader: () => this.drawService.getDraws(),
+    stream: () => this.drawService.getDraws(),
   });
 }
