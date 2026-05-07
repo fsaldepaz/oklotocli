@@ -1,0 +1,27 @@
+<div class="container" style="padding: 20px;">
+  <h3>Crear Nuevo Registro</h3>
+  
+  <form [formGroup]="objetoForm" (ngSubmit)="onSave()">
+    <div class="form-group">
+      <label>Nombre:</label>
+      <input type="text" formControlName="nombre" class="form-control">
+      <small *ngIf="objetoForm.get('nombre')?.invalid && objetoForm.get('nombre')?.touched" style="color: red;">
+        El nombre es obligatorio (mín. 3 caracteres).
+      </small>
+    </div>
+
+    <div class="form-group" style="margin-top: 10px;">
+      <label>Combinación:</label>
+      <input type="text" formControlName="combinacion" class="form-control">
+      <small *ngIf="objetoForm.get('combinacion')?.invalid && objetoForm.get('combinacion')?.touched" style="color: red;">
+        La combinación es obligatoria.
+      </small>
+    </div>
+
+    <button type="submit" [disabled]="objetoForm.invalid" style="margin-top: 15px;">
+      Guardar Objeto
+    </button>
+  </form>
+
+  <p *ngIf="mensaje" style="margin-top: 10px;">{{ mensaje }}</p>
+</div>
