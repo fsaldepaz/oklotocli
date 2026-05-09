@@ -30,7 +30,7 @@ export class Login {
       this.authService.login(this.loginForm.value).subscribe({
         next: (res) => {
           console.log('Login exitoso', res);
-          this.router.navigate(['/dashboard']); // Redirigimos al entrar
+          this.router.navigate(['/test']); // Redirigimos al entrar
         },
         error: (err) => {
           alert('Error: Credenciales incorrectas');
